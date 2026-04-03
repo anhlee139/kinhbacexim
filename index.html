@@ -79,7 +79,7 @@
                 </div>
                 <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                     <!-- Product 1 -->
-                    <div class="gallery-item animate-on-scroll glass-card" style="padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; cursor: pointer;">
+                    <div id="plywood-card" class="gallery-item animate-on-scroll glass-card product-card" data-product="PLYWOOD" data-folder="PLYWOOD" style="padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; cursor: pointer;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-primary);">PLYWOOD</h3>
                         <ul style="list-style-type: none; padding-left: 0; line-height: 1.8; color: var(--color-text-dark);">
                             <li><strong>Size:</strong> 1220x2440mm</li>
@@ -89,18 +89,30 @@
                             <li><strong>Face veneer:</strong> (customizable)</li>
                             <li><strong>MOQ:</strong> Container 20ft</li>
                         </ul>
+                        <div class="view-gallery-btn">
+                            <span>View Gallery</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
                     </div>
                     <!-- Product 2 -->
-                    <div class="gallery-item animate-on-scroll delay-1 glass-card" style="padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; cursor: pointer;">
+                    <div id="pallet-card" class="gallery-item animate-on-scroll delay-1 glass-card product-card" data-product="PALLET" data-folder="PALLET" style="padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; cursor: pointer;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-primary);">PALLET</h3>
                         <p style="margin-bottom: 1rem; line-height: 1.6; color: var(--color-text-dark);">High-quality wood pallets for export, designed for durability, strong load capacity, and compliance with international shipping standards (ISPM 15).</p>
                         <ul style="list-style-type: none; padding-left: 0; line-height: 1.8; color: var(--color-text-dark);">
                             <li><strong>Material:</strong> Acacia, Pine...</li>
                             <li><strong>MOQ:</strong> Container 40ft</li>
                         </ul>
+                        <div class="view-gallery-btn">
+                            <span>View Gallery</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
                     </div>
                     <!-- Product 3 -->
-                    <div class="gallery-item animate-on-scroll delay-2 glass-card" style="padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; cursor: pointer;">
+                    <div id="household-card" class="gallery-item animate-on-scroll delay-2 glass-card product-card" data-product="HOUSEHOLD WOODEN" data-folder="HOUSEHOLD" style="padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; cursor: pointer;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-primary);">HOUSEHOLD WOODEN</h3>
                         <p style="margin-bottom: 1rem; line-height: 1.6; color: var(--color-text-dark);">Eco-friendly and high-quality household wooden products, designed for durability, functionality, and modern living.</p>
                         <ul style="list-style-type: none; padding-left: 0; line-height: 1.8; color: var(--color-text-dark);">
@@ -108,6 +120,12 @@
                             <li><strong>Finish:</strong> natural / lacquer / oil coating</li>
                             <li><strong>MOQ:</strong> 200 pcs</li>
                         </ul>
+                        <div class="view-gallery-btn">
+                            <span>View Gallery</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,6 +203,32 @@
             </div>
         </section>
     </main>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
+        <div class="gallery-modal-content">
+            <div class="gallery-modal-header">
+                <h2 class="gallery-modal-title" id="gallery-modal-title"></h2>
+                <button class="gallery-modal-close" id="close-modal" aria-label="Close gallery">&times;</button>
+            </div>
+            <div class="gallery-modal-body">
+                <div class="gallery-modal-grid" id="gallery-grid">
+                    <!-- Images will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
+        <button class="lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
