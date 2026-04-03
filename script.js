@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { src: 'PLYWOOD/13.jpg', alt: 'Plywood 13' },
             { src: 'PLYWOOD/6.jpg', alt: 'Plywood 6' },
             { src: 'PLYWOOD/7.jpg', alt: 'Plywood 7' },
-            { src: 'PLYWOOD/14.jpg', alt: 'Plywood 2' }
+            { src: 'PLYWOOD/Ảnh Hình 2.jpg', alt: 'Plywood Hình 2' }
         ],
         'PALLET': [
             { src: 'PALLET/2.jpg', alt: 'Pallet 2' },
@@ -117,6 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
             { src: 'HOUSEHOLD/3.jpg', alt: 'Household 3' },
             { src: 'HOUSEHOLD/4.jpg', alt: 'Household 4' },
             { src: 'HOUSEHOLD/5.jpg', alt: 'Household 5' }
+        ],
+        'GALLERY': [
+            { src: 'Gallery/1.jpg', alt: 'Gallery 1' },
+            { src: 'Gallery/2.jpg', alt: 'Gallery 2' },
+            { src: 'Gallery/3.jpg', alt: 'Gallery 3' },
+            { src: 'Gallery/4.jpg', alt: 'Gallery 4' },
+            { src: 'Gallery/5.jpg', alt: 'Gallery 5' },
+            { src: 'Gallery/6.jpg', alt: 'Gallery 6' },
+            { src: 'Gallery/7.jpg', alt: 'Gallery 7' },
+            { src: 'Gallery/8.jpg', alt: 'Gallery 8' },
+            { src: 'Gallery/9.jpg', alt: 'Gallery 9' },
+            { src: 'Gallery/10.jpg', alt: 'Gallery 10' }
         ]
     };
 
@@ -316,4 +328,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // Load Insights Gallery Images
+    const insightsGalleryGrid = document.getElementById('insights-gallery-grid');
+    if (insightsGalleryGrid && productImages['GALLERY']) {
+        const galleryImages = productImages['GALLERY'];
+        galleryImages.forEach((img, index) => {
+            const item = document.createElement('div');
+            item.className = 'insights-gallery-item animate-on-scroll';
+            if (index % 3 === 1) item.classList.add('delay-1');
+            if (index % 3 === 2) item.classList.add('delay-2');
+            
+            const imgElement = document.createElement('img');
+            imgElement.src = img.src;
+            imgElement.alt = img.alt;
+            imgElement.className = 'insights-gallery-img';
+            imgElement.loading = 'lazy';
+            
+            item.appendChild(imgElement);
+            insightsGalleryGrid.appendChild(item);
+            
+            // Add click event to open lightbox
+            item.addEventListener('click', () => {
+                currentProduct = 'GALLERY';
+                currentImageIndex = index;
+                showLightboxImage();
+                lightbox.classList.add('active');
+            });
+        });
+
+        // Re-observe animated elements for insights gallery
+        const newAnimatedElements = document.querySelectorAll('.insights-gallery-item.animate-on-scroll');
+        newAnimatedElements.forEach(el => {
+            observer.observe(el);
+        });
+    }
 });
