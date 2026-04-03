@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { src: 'PLYWOOD/13.jpg', alt: 'Plywood 13' },
             { src: 'PLYWOOD/6.jpg', alt: 'Plywood 6' },
             { src: 'PLYWOOD/7.jpg', alt: 'Plywood 7' },
-            { src: 'PLYWOOD/Ảnh Hình 2.jpg', alt: 'Plywood Hình 2' }
+            { src: 'PLYWOOD/14.jpg', alt: 'Plywood 2' }
         ],
         'PALLET': [
             { src: 'PALLET/2.jpg', alt: 'Pallet 2' },
