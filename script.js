@@ -68,24 +68,130 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Form submission handling (prevent default for demo purposes)
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
+    // EmailJS Contact Form Handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        // Cache DOM elements
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const successMsg = document.getElementById('successMessage');
+        const errorMsg = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+        
+        let isSubmitting = false;
+        let emailjsInitialized = false;
+        
+        // Initialize EmailJS with retry logic
+        function initEmailJS() {
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init('jpl3ZPf6WnzbkuDy8');
+                emailjsInitialized = true;
+                console.log('EmailJS initialized successfully');
+                return true;
+            }
+            return false;
+        }
+        
+        // Try to initialize immediately
+        if (!initEmailJS()) {
+            // If failed, retry after a short delay
+            setTimeout(initEmailJS, 500);
+        }
+        
+        // Helper function to show error
+        function showError(message) {
+            if (errorMsg && errorText) {
+                errorText.textContent = message;
+                errorMsg.classList.add('show');
+                errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Hide error after 8 seconds
+                setTimeout(() => {
+                    errorMsg.classList.remove('show');
+                }, 8000);
+            }
+        }
+        
+        // Helper function to reset button
+        function resetButton(originalText) {
+            if (submitBtn) {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+            }
+            isSubmitting = false;
+        }
+
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
             
-            btn.textContent = 'Trải nghiệm thành công';
-            btn.style.backgroundColor = '#00b090'; // success color
+            // Prevent duplicate submission
+            if (isSubmitting) {
+                return;
+            }
             
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.backgroundColor = '';
-                form.reset();
-            }, 3000);
+            // Hide previous messages
+            if (successMsg) successMsg.classList.remove('show');
+            if (errorMsg) errorMsg.classList.remove('show');
+            
+            // Check if EmailJS is available
+            if (!emailjsInitialized || typeof emailjs === 'undefined') {
+                showError('Email service is not available. Please try again later or contact us directly at thomas@kinhbacexim.com');
+                return;
+            }
+            
+            // Set submitting flag
+            isSubmitting = true;
+            
+            // Show loading state
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            
+            // Prepare template parameters for EmailJS
+            const templateParams = {
+                from_name: formData.get('firstName') + ' ' + formData.get('lastName'),
+                from_email: formData.get('email'),
+                message: formData.get('message'),
+                to_email: 'thomas@kinhbacexim.com'
+            };
+            
+            // Send email via EmailJS
+            emailjs.send('service_ldz061i', 'template_m1q4dwj', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Show success message
+                    if (successMsg) {
+                        successMsg.classList.add('show');
+                        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            successMsg.classList.remove('show');
+                        }, 5000);
+                    }
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button
+                    resetButton(originalText);
+                    
+                }, function(error) {
+                    console.error('EmailJS Error:', error);
+                    
+                    // Show error message in UI
+                    showError('Sorry, there was an error sending your message. Please try again or contact us directly at thomas@kinhbacexim.com');
+                    
+                    // Reset button
+                    resetButton(originalText);
+                });
         });
-    });
+    }
 
     // Gallery Modal functionality - Dynamic system
     const galleryModal = document.getElementById('gallery-modal');
