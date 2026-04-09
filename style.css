@@ -746,7 +746,7 @@ input:focus, textarea:focus {
 }
 
 .success-message {
-    display: none;
+    display: none !important;
     margin-top: 20px;
     padding: 15px 20px;
     background-color: #d4edda;
@@ -758,7 +758,7 @@ input:focus, textarea:focus {
 }
 
 .success-message.show {
-    display: block;
+    display: block !important;
 }
 
 @keyframes slideDown {
@@ -773,7 +773,7 @@ input:focus, textarea:focus {
 }
 
 .error-message {
-    display: none;
+    display: none !important;
     margin-top: 20px;
     padding: 15px 20px;
     background-color: #f8d7da;
@@ -785,7 +785,7 @@ input:focus, textarea:focus {
 }
 
 .error-message.show {
-    display: block;
+    display: block !important;
 }
 
 /* Social Media Contact Bar */
@@ -829,7 +829,7 @@ input:focus, textarea:focus {
 
 .social-icons-wrapper {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
     align-items: center;
@@ -997,7 +997,7 @@ input:focus, textarea:focus {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
     .social-icons-wrapper {
         flex-direction: column;
         width: 100%;
@@ -1010,6 +1010,13 @@ input:focus, textarea:focus {
         justify-content: flex-start;
         padding: 16px 24px;
         gap: 16px;
+    }
+}
+
+/* Ensure buttons stay horizontal on tablets and small desktops */
+@media (min-width: 401px) {
+    .social-icons-wrapper {
+        flex-direction: row !important;
     }
 }
 
