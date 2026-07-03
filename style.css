@@ -329,7 +329,8 @@ h1, h2, h3, h4, h5, h6 {
 .hero-slider-container {
     position: relative;
     width: 100%;
-    height: clamp(280px, 40vw, 560px);
+    /* clamp: min 220px, fluid 31.6vw (tỉ lệ 1900x600), max 600px */
+    height: clamp(220px, 31.6vw, 600px);
     background-color: #0a0a0a;
     overflow: hidden;
     border-radius: 0;
