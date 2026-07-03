@@ -480,32 +480,39 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slides.length > 0) {
         let currentSlideIndex = 0;
         let slideInterval = null;
-        const slideDuration = 5000; // 5 seconds per slide
+        const slideDuration = 3000; // 3 seconds per slide
+
+        // Inject progress bar into slider container
+        const progressBar = document.createElement('div');
+        progressBar.className = 'slider-progress';
+        if (sliderContainer) sliderContainer.appendChild(progressBar);
         
         function goToSlide(index) {
-            // Remove active class from current slide and dot
             slides[currentSlideIndex].classList.remove('active');
             if (dots.length > 0) dots[currentSlideIndex].classList.remove('active');
-            
-            // Set index
             currentSlideIndex = (index + slides.length) % slides.length;
-            
-            // Add active class to new slide and dot
             slides[currentSlideIndex].classList.add('active');
             if (dots.length > 0) dots[currentSlideIndex].classList.add('active');
+            // Reset progress bar animation
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    progressBar.style.transition = `width ${slideDuration}ms linear`;
+                    progressBar.style.width = '100%';
+                });
+            });
         }
         
-        function nextSlide() {
-            goToSlide(currentSlideIndex + 1);
-        }
-        
-        function prevSlide() {
-            goToSlide(currentSlideIndex - 1);
-        }
+        function nextSlide() { goToSlide(currentSlideIndex + 1); }
+        function prevSlide() { goToSlide(currentSlideIndex - 1); }
         
         function startAutoPlay() {
             if (!slideInterval) {
                 slideInterval = setInterval(nextSlide, slideDuration);
+                // Restart progress bar
+                progressBar.style.transition = `width ${slideDuration}ms linear`;
+                progressBar.style.width = '100%';
             }
         }
         
@@ -513,42 +520,50 @@ document.addEventListener('DOMContentLoaded', () => {
             if (slideInterval) {
                 clearInterval(slideInterval);
                 slideInterval = null;
+                // Freeze progress bar
+                const computed = getComputedStyle(progressBar).width;
+                progressBar.style.transition = 'none';
+                progressBar.style.width = computed;
             }
         }
         
-        // Event listeners for arrows
+        // Arrow buttons
         if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                stopAutoPlay();
-                startAutoPlay(); // Restart timer after user interaction
-            });
+            prevBtn.addEventListener('click', () => { prevSlide(); stopAutoPlay(); startAutoPlay(); });
         }
-        
         if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                stopAutoPlay();
-                startAutoPlay(); // Restart timer after user interaction
-            });
+            nextBtn.addEventListener('click', () => { nextSlide(); stopAutoPlay(); startAutoPlay(); });
         }
         
-        // Event listeners for dots
+        // Dot buttons
         dots.forEach((dot, idx) => {
-            dot.addEventListener('click', () => {
-                goToSlide(idx);
-                stopAutoPlay();
-                startAutoPlay(); // Restart timer after user interaction
-            });
+            dot.addEventListener('click', () => { goToSlide(idx); stopAutoPlay(); startAutoPlay(); });
         });
         
-        // Hover listeners to pause/resume auto-play
+        // Hover pause/resume
         if (sliderContainer) {
             sliderContainer.addEventListener('mouseenter', stopAutoPlay);
             sliderContainer.addEventListener('mouseleave', startAutoPlay);
+
+            // Touch swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            sliderContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                stopAutoPlay();
+            }, { passive: true });
+            sliderContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 40) {
+                    diff > 0 ? nextSlide() : prevSlide();
+                }
+                startAutoPlay();
+            }, { passive: true });
         }
         
-        // Start autoplay initially
+        // Start with progress bar immediately
+        goToSlide(0);
         startAutoPlay();
     }
 });

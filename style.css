@@ -475,6 +475,19 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 8px rgba(139, 90, 43, 0.5);
 }
 
+/* Slider progress bar */
+.slider-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-primary), #e8a045);
+    z-index: 20;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 0 0 8px rgba(139, 90, 43, 0.6);
+}
+
 /* Responsive slider heights */
 @media (max-width: 1024px) {
     .hero-slider-container {
