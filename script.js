@@ -469,4 +469,86 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(el);
         });
     }
+
+    // Hero Slider logic
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.slider-arrow.prev');
+    const nextBtn = document.querySelector('.slider-arrow.next');
+    const sliderContainer = document.querySelector('.hero-slider-container');
+    
+    if (slides.length > 0) {
+        let currentSlideIndex = 0;
+        let slideInterval = null;
+        const slideDuration = 5000; // 5 seconds per slide
+        
+        function goToSlide(index) {
+            // Remove active class from current slide and dot
+            slides[currentSlideIndex].classList.remove('active');
+            if (dots.length > 0) dots[currentSlideIndex].classList.remove('active');
+            
+            // Set index
+            currentSlideIndex = (index + slides.length) % slides.length;
+            
+            // Add active class to new slide and dot
+            slides[currentSlideIndex].classList.add('active');
+            if (dots.length > 0) dots[currentSlideIndex].classList.add('active');
+        }
+        
+        function nextSlide() {
+            goToSlide(currentSlideIndex + 1);
+        }
+        
+        function prevSlide() {
+            goToSlide(currentSlideIndex - 1);
+        }
+        
+        function startAutoPlay() {
+            if (!slideInterval) {
+                slideInterval = setInterval(nextSlide, slideDuration);
+            }
+        }
+        
+        function stopAutoPlay() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        }
+        
+        // Event listeners for arrows
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                stopAutoPlay();
+                startAutoPlay(); // Restart timer after user interaction
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                stopAutoPlay();
+                startAutoPlay(); // Restart timer after user interaction
+            });
+        }
+        
+        // Event listeners for dots
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                goToSlide(idx);
+                stopAutoPlay();
+                startAutoPlay(); // Restart timer after user interaction
+            });
+        });
+        
+        // Hover listeners to pause/resume auto-play
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+            sliderContainer.addEventListener('mouseleave', startAutoPlay);
+        }
+        
+        // Start autoplay initially
+        startAutoPlay();
+    }
 });

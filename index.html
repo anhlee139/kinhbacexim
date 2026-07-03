@@ -44,15 +44,50 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-bg"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title animate-on-scroll">About Kinh Bac<br>Wood?</h1>
-                    <p class="hero-text animate-on-scroll delay-1">Our company manufactures and exports high-quality wood products in Vietnam. We maintain strict control over our raw material sourcing and ensure a stable supply to meet the needs of our customers worldwide.</p>
-                    <p class="hero-text animate-on-scroll delay-2">With our production capacity and partnerships with over 50 leading wood manufacturers in Vietnam, we operate dedicated production facilities that allow for rigorous control over raw materials and product quality. Our experienced Quality Control (QC) team is capable of meeting even the most stringent international standards. We also support flexible partnerships by accepting small initial orders and offering competitive pricing to facilitate starting a business with us.</p>
-                    <div class="animate-on-scroll delay-3">
-                        <a href="#contact" class="btn btn-primary">Contact Us</a>
+        <section id="home" class="hero-section-new">
+            <!-- Full Width Image Slider -->
+            <div class="hero-slider-container">
+                <div class="hero-slider">
+                    <div class="hero-slide active">
+                        <img src="Home/slider_1.png" alt="Kinh Bac Plywood Banner">
+                    </div>
+                    <div class="hero-slide">
+                        <img src="Home/slider_2.webp" alt="Kinh Bac Factory Production Line">
+                    </div>
+                    <div class="hero-slide">
+                        <img src="Home/slider_3.webp" alt="Kinh Bac Plywood Manufacturing Machine">
+                    </div>
+                    <div class="hero-slide">
+                        <img src="Home/slider_4.png" alt="Kinh Bac Plywood Warehouse Inventory">
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <button class="slider-arrow prev" aria-label="Previous slide">&#10094;</button>
+                <button class="slider-arrow next" aria-label="Next slide">&#10095;</button>
+                
+                <!-- Slider Dots -->
+                <div class="slider-dots">
+                    <span class="slider-dot active" data-index="0"></span>
+                    <span class="slider-dot" data-index="1"></span>
+                    <span class="slider-dot" data-index="2"></span>
+                    <span class="slider-dot" data-index="3"></span>
+                </div>
+            </div>
+
+            <!-- Hero Intro Content (Displayed below the slider) -->
+            <div class="container hero-intro-container">
+                <div class="hero-intro-grid">
+                    <div class="hero-intro-header animate-on-scroll">
+                        <span class="section-subtitle">ABOUT US</span>
+                        <h1 class="hero-intro-title">About Kinh Bac<br>Wood?</h1>
+                    </div>
+                    <div class="hero-intro-text animate-on-scroll">
+                        <p class="hero-text-p">Our company manufactures and exports high-quality wood products in Vietnam. We maintain strict control over our raw material sourcing and ensure a stable supply to meet the needs of our customers worldwide.</p>
+                        <p class="hero-text-p">With our production capacity and partnerships with over 50 leading wood manufacturers in Vietnam, we operate dedicated production facilities that allow for rigorous control over raw materials and product quality. Our experienced Quality Control (QC) team is capable of meeting even the most stringent international standards. We also support flexible partnerships by accepting small initial orders and offering competitive pricing to facilitate starting a business with us.</p>
+                        <div class="hero-btn-wrapper">
+                            <a href="#contact" class="btn btn-primary">Contact Us</a>
+                        </div>
                     </div>
                 </div>
             </div>
