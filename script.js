@@ -202,14 +202,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Product image data
     const productImages = {
-        'PLYWOOD': [
-            { src: 'PLYWOOD/10.jpg', alt: 'Plywood 10' },
-            { src: 'PLYWOOD/11.jpg', alt: 'Plywood 11' },
-            { src: 'PLYWOOD/12.jpg', alt: 'Plywood 12' },
-            { src: 'PLYWOOD/13.jpg', alt: 'Plywood 13' },
-            { src: 'PLYWOOD/6.jpg', alt: 'Plywood 6' },
-            { src: 'PLYWOOD/7.jpg', alt: 'Plywood 7' },
-            { src: 'PLYWOOD/Ảnh Hình 2.jpg', alt: 'Plywood Hình 2' }
+        'FILM FACED PLYWOOD': [
+            { src: 'PLYWOOD/10.jpg', alt: 'Film Faced Plywood 10' },
+            { src: 'PLYWOOD/11.jpg', alt: 'Film Faced Plywood 11' },
+            { src: 'PLYWOOD/12.jpg', alt: 'Film Faced Plywood 12' },
+            { src: 'PLYWOOD/13.jpg', alt: 'Film Faced Plywood 13' },
+            { src: 'PLYWOOD/6.jpg', alt: 'Film Faced Plywood 6' },
+            { src: 'PLYWOOD/7.jpg', alt: 'Film Faced Plywood 7' },
+            { src: 'PLYWOOD/14.jpg', alt: 'Film Faced Plywood 14' }
         ],
         'PALLET': [
             { src: 'PALLET/2.jpg', alt: 'Pallet 2' },
