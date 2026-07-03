@@ -329,8 +329,18 @@
                 <button class="gallery-modal-close" id="close-modal" aria-label="Close gallery">&times;</button>
             </div>
             <div class="gallery-modal-body">
-                <div class="gallery-modal-grid" id="gallery-grid">
-                    <!-- Images will be dynamically loaded here -->
+                <!-- Layout 2 cột: gallery + spec (chỉ hiện với sản phẩm có spec) -->
+                <div class="gallery-modal-layout" id="gallery-modal-layout">
+                    <!-- Cột trái: ảnh gallery -->
+                    <div class="gallery-modal-images-col">
+                        <div class="gallery-modal-grid" id="gallery-grid">
+                            <!-- Images will be dynamically loaded here -->
+                        </div>
+                    </div>
+                    <!-- Cột phải: bảng thông số kỹ thuật -->
+                    <div class="gallery-modal-spec-col" id="gallery-modal-spec-col">
+                        <!-- Spec table will be dynamically loaded here -->
+                    </div>
                 </div>
             </div>
         </div>

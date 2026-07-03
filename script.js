@@ -238,6 +238,74 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
+    // Product Technical Specifications
+    const productSpecs = {
+        'FILM FACED PLYWOOD': {
+            title: 'Technical Specifications',
+            subtitle: 'Film Faced Plywood – Construction Grade',
+            badge: 'Export Quality',
+            sections: [
+                {
+                    label: 'Dimensions',
+                    icon: '&#9634;',
+                    rows: [
+                        { key: 'Standard Sizes', value: '1200 × 2400 mm &nbsp;|&nbsp; 1220 × 2440 mm &nbsp;|&nbsp; 1250 × 2500 mm' },
+                        { key: 'Thickness', value: '12mm (7 plies) &nbsp;|&nbsp; 15mm (9 plies) &nbsp;|&nbsp; 18mm (11 plies) &nbsp;|&nbsp; 21mm (13 plies)' },
+                        { key: 'Custom Thickness', value: 'Available upon request' }
+                    ]
+                },
+                {
+                    label: 'Material & Core',
+                    icon: '&#9632;',
+                    rows: [
+                        { key: 'Core Species', value: 'Eucalyptus &nbsp;|&nbsp; Acacia &nbsp;|&nbsp; Rubberwood' },
+                        { key: 'Face Film', value: 'Black phenolic film &nbsp;|&nbsp; Brown phenolic film' },
+                        { key: 'Film Density', value: '120 g/m² &nbsp;|&nbsp; 220 g/m² (optional)' },
+                        { key: 'Film Color', value: 'Customize: Brown, Black' }
+                    ]
+                },
+                {
+                    label: 'Adhesive & Bonding',
+                    icon: '&#9670;',
+                    rows: [
+                        { key: 'Glue Type', value: 'WBP Melamine (7%–20%) &nbsp;|&nbsp; WBP Phenolic' },
+                        { key: 'Bonding Grade', value: 'Fully Waterproof (Exterior / Marine Grade)' },
+                        { key: 'Glue Line', value: 'Consistent, no delamination under load' }
+                    ]
+                },
+                {
+                    label: 'Emission & Certification',
+                    icon: '&#10003;',
+                    rows: [
+                        { key: 'Formaldehyde Emission', value: 'E0 &nbsp;|&nbsp; E1 &nbsp;|&nbsp; E2 &nbsp;|&nbsp; CARB P2' },
+                        { key: 'Certifications', value: 'FSC &nbsp;|&nbsp; CE &nbsp;|&nbsp; CARB P2' },
+                        { key: 'Standards', value: 'EN 13986 &nbsp;|&nbsp; BS 6566 &nbsp;|&nbsp; AS/NZS 2269' }
+                    ]
+                },
+                {
+                    label: 'Performance',
+                    icon: '&#11044;',
+                    rows: [
+                        { key: 'Moisture Resistance', value: 'High – suitable for outdoor & humid environments' },
+                        { key: 'Surface Hardness', value: 'Hard-wearing, anti-slip optional' },
+                        { key: 'Reusability', value: 'Up to 30+ reuses in concrete formwork' },
+                        { key: 'Applications', value: 'Concrete formwork, flooring, scaffolding, cladding' }
+                    ]
+                },
+                {
+                    label: 'Commercial',
+                    icon: '&#9733;',
+                    rows: [
+                        { key: 'MOQ', value: '1 × 20ft Container' },
+                        { key: 'Lead Time', value: '15–25 days after deposit' },
+                        { key: 'Packing', value: 'Palletized with plastic wrap &amp; corner protection' },
+                        { key: 'Port of Loading', value: 'Hai Phong Port, Vietnam' }
+                    ]
+                }
+            ]
+        }
+    };
+
     let currentProduct = null;
 
     // Open modal when clicking any product card
@@ -255,13 +323,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Render spec table HTML
+    function renderSpecTable(specData) {
+        if (!specData) return '';
+        let html = `
+            <div class="spec-panel">
+                <div class="spec-panel-header">
+                    <span class="spec-badge">${specData.badge}</span>
+                    <h3 class="spec-panel-title">${specData.title}</h3>
+                    <p class="spec-panel-subtitle">${specData.subtitle}</p>
+                </div>
+                <div class="spec-panel-body">
+        `;
+        specData.sections.forEach(section => {
+            html += `
+                <div class="spec-section">
+                    <div class="spec-section-label">
+                        <span class="spec-section-icon">${section.icon}</span>
+                        <span>${section.label}</span>
+                    </div>
+                    <table class="spec-table">
+                        <tbody>
+            `;
+            section.rows.forEach((row, i) => {
+                html += `
+                    <tr class="spec-row ${i % 2 === 0 ? 'spec-row-even' : 'spec-row-odd'}">
+                        <td class="spec-key">${row.key}</td>
+                        <td class="spec-value">${row.value}</td>
+                    </tr>
+                `;
+            });
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        });
+        html += `
+                </div>
+                <div class="spec-panel-footer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    All specifications subject to production tolerances. Custom specs available.
+                </div>
+            </div>
+        `;
+        return html;
+    }
+
     // Load images into gallery grid
     function loadGalleryImages(folderName, productName) {
         // Update title
-        galleryModalTitle.textContent = `${productName} Gallery`;
+        galleryModalTitle.textContent = `${productName}`;
         
         // Clear existing images
         galleryGrid.innerHTML = '';
+
+        // Check if this product has a spec table
+        const specCol = document.getElementById('gallery-modal-spec-col');
+        const layout = document.getElementById('gallery-modal-layout');
+        const specData = productSpecs[folderName];
+
+        if (specData && specCol && layout) {
+            layout.classList.add('has-spec');
+            specCol.innerHTML = renderSpecTable(specData);
+        } else if (specCol && layout) {
+            layout.classList.remove('has-spec');
+            specCol.innerHTML = '';
+        }
         
         // Add new images
         const images = productImages[folderName];
