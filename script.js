@@ -203,13 +203,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Product image data
     const productImages = {
         'FILM FACED PLYWOOD': [
-            { src: 'PLYWOOD/10.jpg', alt: 'Film Faced Plywood 10' },
-            { src: 'PLYWOOD/11.jpg', alt: 'Film Faced Plywood 11' },
-            { src: 'PLYWOOD/12.jpg', alt: 'Film Faced Plywood 12' },
-            { src: 'PLYWOOD/13.jpg', alt: 'Film Faced Plywood 13' },
-            { src: 'PLYWOOD/6.jpg', alt: 'Film Faced Plywood 6' },
-            { src: 'PLYWOOD/7.jpg', alt: 'Film Faced Plywood 7' },
-            { src: 'PLYWOOD/14.jpg', alt: 'Film Faced Plywood 14' }
+            { src: 'Film Faced Plywood/1.png', alt: 'Film Faced Plywood 1' },
+            { src: 'Film Faced Plywood/2.png', alt: 'Film Faced Plywood 2' },
+            { src: 'Film Faced Plywood/3.png', alt: 'Film Faced Plywood 3' },
+            { src: 'Film Faced Plywood/4.png', alt: 'Film Faced Plywood 4' },
+            { src: 'Film Faced Plywood/5.png', alt: 'Film Faced Plywood 5' },
+            { src: 'Film Faced Plywood/6.jpg', alt: 'Film Faced Plywood 6' }
         ],
         'PALLET': [
             { src: 'PALLET/2.jpg', alt: 'Pallet 2' },
