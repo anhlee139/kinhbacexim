@@ -237,6 +237,13 @@ document.addEventListener('DOMContentLoaded', () => {
             { src: 'Gallery/8.jpg', alt: 'Gallery 8' },
             { src: 'Gallery/9.jpg', alt: 'Gallery 9' },
             { src: 'Gallery/10.jpg', alt: 'Gallery 10' }
+        ],
+        'QUALITY CONTROL': [
+            { src: 'Quality Control/1.jpg', alt: 'Quality Control 1' },
+            { src: 'Quality Control/2.jpg', alt: 'Quality Control 2' },
+            { src: 'Quality Control/3.jpg', alt: 'Quality Control 3' },
+            { src: 'Quality Control/4.jpg', alt: 'Quality Control 4' },
+            { src: 'Quality Control/5.jpg', alt: 'Quality Control 5' }
         ]
     };
 
