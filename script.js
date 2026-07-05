@@ -210,11 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
             { src: 'Film Faced Plywood/5.png', alt: 'Film Faced Plywood 5' },
             { src: 'Film Faced Plywood/6.jpg', alt: 'Film Faced Plywood 6' }
         ],
-        'PALLET': [
-            { src: 'PALLET/2.jpg', alt: 'Pallet 2' },
-            { src: 'PALLET/3.jpg', alt: 'Pallet 3' },
-            { src: 'PALLET/4.jpg', alt: 'Pallet 4' },
-            { src: 'PALLET/8.jpg', alt: 'Pallet 8' }
+        'COMMERCIAL PLYWOOD': [
+            { src: 'Commercial Plywood/cover.png', alt: 'Commercial Plywood Cover' },
+            { src: 'Commercial Plywood/1.png', alt: 'Commercial Plywood 1' },
+            { src: 'Commercial Plywood/2.png', alt: 'Commercial Plywood 2' },
+            { src: 'Commercial Plywood/3.png', alt: 'Commercial Plywood 3' },
+            { src: 'Commercial Plywood/4.png', alt: 'Commercial Plywood 4' },
+            { src: 'Commercial Plywood/5.png', alt: 'Commercial Plywood 5' }
         ],
         'HOUSEHOLD': [
             { src: 'HOUSEHOLD/1.jpg', alt: 'Household 1' },
@@ -299,6 +301,58 @@ document.addEventListener('DOMContentLoaded', () => {
                         { key: 'Lead Time', value: '15–25 days after deposit' },
                         { key: 'Packing', value: 'Palletized with plastic wrap &amp; corner protection' },
                         { key: 'Port of Loading', value: 'Hai Phong Port, Vietnam' }
+                    ]
+                }
+            ]
+        },
+        'COMMERCIAL PLYWOOD': {
+            title: 'Technical Specifications',
+            subtitle: 'Commercial Plywood – Multi-Purpose Grade',
+            badge: 'Export Quality',
+            sections: [
+                {
+                    label: 'Dimensions',
+                    icon: '&#9634;',
+                    rows: [
+                        { key: 'Standard Sizes', value: '1220 × 2440 mm &nbsp;|&nbsp; 910 × 1820 mm &nbsp;|&nbsp; Custom available' },
+                        { key: 'Common Thickness', value: '8.5mm (4 layers) &nbsp;|&nbsp; 11.5mm (7L×1.7mm) &nbsp;|&nbsp; 14.5mm (9L×1.7mm) &nbsp;|&nbsp; 17.5mm (11L×1.7mm)' },
+                        { key: 'Tolerance', value: '+/−0.3mm' }
+                    ]
+                },
+                {
+                    label: 'Material & Core',
+                    icon: '&#9632;',
+                    rows: [
+                        { key: 'Wood Species', value: 'Eucalyptus &nbsp;|&nbsp; Acacia &nbsp;|&nbsp; Styrax' },
+                        { key: 'Core Grade', value: 'A/B/C grade core veneer depending on purpose' },
+                        { key: 'Face & Back', value: 'Okoume 0.25mm &nbsp;|&nbsp; Bintangor 0.13–0.15mm' },
+                        { key: 'Color', value: 'Red' }
+                    ]
+                },
+                {
+                    label: 'Adhesive & Bonding',
+                    icon: '&#9670;',
+                    rows: [
+                        { key: 'Glue Type', value: 'MR Urea Formaldehyde' },
+                        { key: 'Formaldehyde Emission', value: 'E0 &nbsp;|&nbsp; E1 &nbsp;|&nbsp; E2' }
+                    ]
+                },
+                {
+                    label: 'Technical Process',
+                    icon: '&#9881;',
+                    rows: [
+                        { key: 'Press Process', value: '1 time cool press &nbsp;|&nbsp; 2 times hot press' },
+                        { key: 'Core Finishing', value: 'Core sanding' },
+                        { key: 'Equipment', value: '6–8 piston hot press machines' }
+                    ]
+                },
+                {
+                    label: 'Physical Properties',
+                    icon: '&#11044;',
+                    rows: [
+                        { key: 'Density', value: '550–580 kg/m³' },
+                        { key: 'Moisture Content', value: 'Below 12%' },
+                        { key: 'Application', value: 'Packaging, pallet, robbin/cable reels, furniture, construction' }
                     ]
                 }
             ]
