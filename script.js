@@ -218,12 +218,13 @@ document.addEventListener('DOMContentLoaded', () => {
             { src: 'Commercial Plywood/4.png', alt: 'Commercial Plywood 4' },
             { src: 'Commercial Plywood/5.png', alt: 'Commercial Plywood 5' }
         ],
-        'HOUSEHOLD': [
-            { src: 'HOUSEHOLD/1.jpg', alt: 'Household 1' },
-            { src: 'HOUSEHOLD/2.jpg', alt: 'Household 2' },
-            { src: 'HOUSEHOLD/3.jpg', alt: 'Household 3' },
-            { src: 'HOUSEHOLD/4.jpg', alt: 'Household 4' },
-            { src: 'HOUSEHOLD/5.jpg', alt: 'Household 5' }
+        'PACKING PLYWOOD': [
+            { src: 'Packing Plywood/1.jpg', alt: 'Packing Plywood 1' },
+            { src: 'Packing Plywood/2.jpg', alt: 'Packing Plywood 2' },
+            { src: 'Packing Plywood/3.jpg', alt: 'Packing Plywood 3' },
+            { src: 'Packing Plywood/4.jpg', alt: 'Packing Plywood 4' },
+            { src: 'Packing Plywood/5.jpg', alt: 'Packing Plywood 5' },
+            { src: 'Packing Plywood/7.jpg', alt: 'Packing Plywood 7' }
         ],
         'GALLERY': [
             { src: 'Gallery/1.jpg', alt: 'Gallery 1' },
@@ -353,6 +354,45 @@ document.addEventListener('DOMContentLoaded', () => {
                         { key: 'Density', value: '550–580 kg/m³' },
                         { key: 'Moisture Content', value: 'Below 12%' },
                         { key: 'Application', value: 'Packaging, pallet, robbin/cable reels, furniture, construction' }
+                    ]
+                }
+            ]
+        },
+        'PACKING PLYWOOD': {
+            title: 'Technical Specifications',
+            subtitle: 'Packing Plywood – Packaging & Industrial Grade',
+            badge: 'Export Quality',
+            sections: [
+                {
+                    label: 'Dimensions',
+                    icon: '&#9634;',
+                    rows: [
+                        { key: 'Standard Sizes', value: '910 × 1820 mm &nbsp;|&nbsp; 1220 × 2440 mm &nbsp;|&nbsp; Custom available' },
+                        { key: 'Thickness', value: '7mm (4 layers) &nbsp;|&nbsp; 8mm (5 layers) &nbsp;|&nbsp; 11mm (7 layers) &nbsp;|&nbsp; 14mm (9 layers) &nbsp;|&nbsp; 17mm (11 layers)' }
+                    ]
+                },
+                {
+                    label: 'Material & Core',
+                    icon: '&#9632;',
+                    rows: [
+                        { key: 'Core Species', value: 'Acacia &nbsp;|&nbsp; Styrax' },
+                        { key: 'Face & Back', value: 'Bintangor 0.13–0.15mm &nbsp;|&nbsp; Okoume 0.17–0.2mm &nbsp;|&nbsp; Styrax 0.35–0.4mm' }
+                    ]
+                },
+                {
+                    label: 'Adhesive & Bonding',
+                    icon: '&#9670;',
+                    rows: [
+                        { key: 'Glue Type', value: 'Urea Formaldehyde (UF)' },
+                        { key: 'Formaldehyde Emission', value: 'E0 &nbsp;|&nbsp; E1 &nbsp;|&nbsp; E2' }
+                    ]
+                },
+                {
+                    label: 'Physical Properties',
+                    icon: '&#11044;',
+                    rows: [
+                        { key: 'Density', value: '550–650 kg/m³' },
+                        { key: 'Application', value: 'Packaging, wooden pallet, cable reels, export crating' }
                     ]
                 }
             ]
