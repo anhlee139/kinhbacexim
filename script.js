@@ -794,4 +794,68 @@ document.addEventListener('DOMContentLoaded', () => {
         goToSlide(0);
         startAutoPlay();
     }
+
+    // ─── QC Article Card Toggle ──────────────────────────────
+    function initQCArticles() {
+        // ── New card-toggle buttons (qc-cards-row layout) ──
+        const cardToggles = document.querySelectorAll('.qc-card-toggle');
+        cardToggles.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.qc-card');
+                const bodyId = btn.getAttribute('aria-controls');
+                const body = document.getElementById(bodyId);
+                const isExpanded = card.classList.contains('expanded');
+
+                card.classList.toggle('expanded', !isExpanded);
+                btn.setAttribute('aria-expanded', String(!isExpanded));
+
+                // Update toggle label
+                const label = btn.querySelector('.qc-toggle-label');
+                if (label) label.textContent = isExpanded ? 'See details' : 'See less';
+            });
+        });
+
+        // Collapse buttons inside card body
+        const collapseBtns = document.querySelectorAll('.qc-collapse-btn');
+        collapseBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const card = document.getElementById(targetId);
+                if (card) {
+                    card.classList.remove('expanded');
+                    // Reset toggle button label & aria
+                    const toggle = card.querySelector('.qc-card-toggle');
+                    if (toggle) {
+                        toggle.setAttribute('aria-expanded', 'false');
+                        const label = toggle.querySelector('.qc-toggle-label');
+                        if (label) label.textContent = 'See details';
+                    }
+                    // Old-style header
+                    const hdr = card.querySelector('.qc-article-header');
+                    if (hdr) hdr.setAttribute('aria-expanded', 'false');
+                    // Smooth scroll back to card top
+                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ── Legacy: old .qc-article-header toggles (kept for backward-compat) ──
+        const qcHeaders = document.querySelectorAll('.qc-article-header');
+        qcHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const card = header.closest('.qc-article-card');
+                const isExpanded = card.classList.contains('expanded');
+                card.classList.toggle('expanded', !isExpanded);
+                header.setAttribute('aria-expanded', String(!isExpanded));
+            });
+            header.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    header.click();
+                }
+            });
+        });
+    }
+
+    initQCArticles();
 });

@@ -210,17 +210,113 @@
         </section>
 
         <!-- Quality Control Section -->
-        <section id="quality-control" class="gallery-section" style="background-color: #f8f9fa;">
+        <section id="quality-control" class="gallery-section qc-section">
             <div class="container">
-                <div class="gallery-header animate-on-scroll" style="text-align: center; margin-bottom: 3rem;">
+                <!-- Section header centralized -->
+                <div class="qc-section-header animate-on-scroll">
                     <span class="section-subtitle">PROCESS</span>
                     <h2 class="section-title text-dark">Quality Control</h2>
-                    <p style="color: var(--color-text-dark); max-width: 680px; margin: 1rem auto 0; line-height: 1.7;">Our dedicated QC team conducts rigorous inspections at every stage — from raw material sourcing to final packaging — ensuring every shipment meets international standards.</p>
+                    <p class="qc-section-desc">Our dedicated QC team conducts rigorous inspections at every stage — from raw material sourcing to final packaging — ensuring every shipment meets international standards.</p>
                 </div>
-                <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;" id="qc-gallery-grid">
-                    <!-- QC images will be listed here -->
-                    <p style="color: #aaa; text-align: center; grid-column: 1/-1; padding: 2rem 0;">Quality Control images coming soon.</p>
-                </div>
+
+                <!-- QC Cards Grid (horizontal, expandable) -->
+                <div class="qc-cards-row">
+
+                    <!-- QC Card 1: 3-layer quality control -->
+                    <div class="qc-card" id="qc-article-1">
+                        <!-- Card header: always visible -->
+                        <div class="qc-card-top">
+                            <div class="qc-card-badge-wrap">
+                                <span class="qc-card-badge">QUALITY CONTROL</span>
+                            </div>
+                            <h3 class="qc-card-title">3-layer quality control — no defect is overlooked</h3>
+                            <p class="qc-card-desc">KINH BAC PLYWOOD's QC system follows an early-prevention principle: identify and correct issues at the source so defects are not allowed to accumulate through the production line.</p>
+                            <button class="qc-card-toggle" aria-expanded="false" aria-controls="qc-article-1-body">
+                                <span class="qc-toggle-label">See details</span>
+                                <span class="qc-toggle-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+
+                        <!-- Card body: hidden until toggled -->
+                        <div class="qc-card-body" id="qc-article-1-body">
+                            <!-- Image banner -->
+                            <div class="qc-card-image-wrap">
+                                <img src="Quality Control/3tier_qc.png" alt="3-Tier Quality Control System — Kinh Bac Plywood" class="qc-card-image">
+                            </div>
+
+                            <div class="qc-levels-grid">
+
+                                <!-- Level 01 -->
+                                <div class="qc-level-col">
+                                    <div class="qc-level-header">
+                                        <span class="qc-level-number">01</span>
+                                        <div>
+                                            <div class="qc-level-label">LEVEL 01 — INCOMING</div>
+                                            <div class="qc-level-subtitle">Incoming Raw Material Inspection</div>
+                                        </div>
+                                    </div>
+                                    <ul class="qc-checklist">
+                                        <li><strong>Logs / purchased veneer:</strong> Check wood species, diameter, grain straightness, moisture content, and signs of fungal decay. Moisture samples are measured using a resistance-type meter.</li>
+                                        <li><strong>Adhesives:</strong> Review the supplier COA to confirm formaldehyde content, pH, and viscosity match the order requirements.</li>
+                                        <li><strong>Surface film (Film Faced):</strong> Check g/m² weight, adhesion performance, and color against the required standard. Reject film that is wrinkled, torn, or out of specification.</li>
+                                        <li><strong>Auxiliary materials &amp; additives:</strong> Verify labeling, shelf life, and proper storage conditions. Keep receiving records linked to the production batch number.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Level 02 -->
+                                <div class="qc-level-col">
+                                    <div class="qc-level-header">
+                                        <span class="qc-level-number">02</span>
+                                        <div>
+                                            <div class="qc-level-label">LEVEL 02 — IN PROCESS</div>
+                                            <div class="qc-level-subtitle">In-Process Quality Control</div>
+                                        </div>
+                                    </div>
+                                    <ul class="qc-checklist">
+                                        <li><strong>After veneer drying:</strong> Check veneer moisture with a pin-type meter at 3–5 random points on each sheet. Veneer above the moisture limit is re-dried before lay-up.</li>
+                                        <li><strong>Glue spreading:</strong> Check glue spread rate by weighing panels before and after coating. Adhesive pH is checked every 2 production hours and recorded in the production log.</li>
+                                        <li><strong>After hot pressing:</strong> Take random samples from each press cycle for preliminary surface inspection to detect blistering, localized delamination, or glue stains.</li>
+                                        <li><strong>After sanding:</strong> Measure thickness at 5 points on each panel and check flatness using a 2-meter straightedge. Thickness deviation is recorded in the lot tracking sheet.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Level 03 -->
+                                <div class="qc-level-col">
+                                    <div class="qc-level-header">
+                                        <span class="qc-level-number">03</span>
+                                        <div>
+                                            <div class="qc-level-label">LEVEL 03 — FINISHED GOODS</div>
+                                            <div class="qc-level-subtitle">Final Finished Goods Inspection</div>
+                                        </div>
+                                    </div>
+                                    <ul class="qc-checklist">
+                                        <li><strong>100% panel surface inspection:</strong> QC staff inspect both A and B faces under standard lighting. Panels with defects beyond the allowed tolerance are marked and removed.</li>
+                                        <li><strong>Dimension &amp; thickness measurement:</strong> Check length, width, and squareness at all 4 corners. Measure thickness at 9 points using a vernier caliper or thickness gauge.</li>
+                                        <li><strong>Bonding test (boil test or shear test):</strong> Representative samples from each lot are tested for bonding strength according to EN 314 or GB/T 17657. Non-conforming lots are not released.</li>
+                                        <li><strong>Independent Vinacontrol inspection:</strong> Vinacontrol takes random samples at the warehouse and performs testing in an accredited laboratory. The inspection report is included in the shipping document package.</li>
+                                    </ul>
+                                </div>
+
+                            </div><!-- /.qc-levels-grid -->
+
+                            <div class="qc-article-footer">
+                                <button class="qc-collapse-btn" data-target="qc-article-1">
+                                    Collapse
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="18 15 12 9 6 15"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div><!-- /.qc-card-body -->
+                    </div><!-- /.qc-card -->
+
+                    <!-- Placeholder: add more QC cards here in the future -->
+
+                </div><!-- /.qc-cards-row -->
             </div>
         </section>
 
