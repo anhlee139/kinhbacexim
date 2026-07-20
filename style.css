@@ -329,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-slider-container {
     position: relative;
     width: 100%;
-    /* clamp: min 220px, fluid 31.6vw (tỉ lệ 1900x600), max 600px */
+    /* clamp: min 220px, fluid 31.6vw (tá»‰ lá»‡ 1900x600), max 600px */
     height: clamp(220px, 31.6vw, 600px);
     background-color: #0a0a0a;
     overflow: hidden;
@@ -489,7 +489,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 8px rgba(139, 90, 43, 0.6);
 }
 
-/* Responsive slider - arrows trên mobile */
+/* Responsive slider - arrows trÃªn mobile */
 @media (max-width: 640px) {
     .slider-arrow {
         width: 36px;
@@ -1871,464 +1871,26 @@ input:focus, textarea:focus {
     }
 }
 
-/* =============================================
-   QC ARTICLE CARD — Expandable 3-column layout
-   ============================================= */
+/* =========================================================
+   QUALITY CONTROL SECTION â€” Complete Professional Redesign
+   ========================================================= */
 
-.qc-articles-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-/* Card wrapper */
-.qc-article-card {
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-    overflow: hidden;
-    border: 1px solid rgba(44, 62, 45, 0.08);
-    transition: box-shadow 0.35s ease;
-}
-
-.qc-article-card:hover {
-    box-shadow: 0 8px 32px rgba(44, 62, 45, 0.13);
-}
-
-/* Clickable header */
-.qc-article-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1.6rem 2rem;
-    cursor: pointer;
-    border-left: 4px solid var(--color-secondary);
-    user-select: none;
-    transition: background 0.2s ease;
-}
-
-.qc-article-header:hover {
-    background: rgba(44, 62, 45, 0.03);
-}
-
-.qc-article-header-left {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.qc-article-badge {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--color-secondary);
-    text-transform: uppercase;
-}
-
-.qc-article-title {
-    font-family: var(--font-heading);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
-    line-height: 1.4;
-    margin: 0;
-}
-
-/* Chevron icon */
-.qc-chevron {
-    flex-shrink: 0;
-    color: var(--color-secondary);
-    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.qc-article-card.expanded .qc-chevron {
-    transform: rotate(180deg);
-}
-
-/* Collapsible body */
-.qc-article-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
-                opacity 0.4s ease,
-                padding 0.35s ease;
-    opacity: 0;
-    padding: 0 2rem;
-}
-
-.qc-article-card.expanded .qc-article-body {
-    max-height: 2000px;
-    opacity: 1;
-    padding: 0 2rem 2rem;
-}
-
-/* Intro paragraph */
-.qc-article-intro {
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
-    line-height: 1.75;
-    padding: 1.25rem 0 1.5rem;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 1.75rem;
-}
-
-/* 3-column level grid */
-.qc-levels-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border: 1px solid #e8e8e8;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.qc-level-col {
-    padding: 1.5rem 1.4rem;
-    border-right: 1px solid #e8e8e8;
-    border-top: 4px solid var(--color-secondary);
-}
-
-.qc-level-col:last-child {
-    border-right: none;
-}
-
-/* Level header row */
-.qc-level-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.85rem;
-    margin-bottom: 1.2rem;
-}
-
-.qc-level-number {
-    flex-shrink: 0;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-secondary);
-    color: #fff;
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 8px;
-}
-
-.qc-level-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-secondary);
-    margin-bottom: 0.2rem;
-}
-
-.qc-level-subtitle {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
-    line-height: 1.35;
-}
-
-/* Checklist items */
-.qc-checklist {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-}
-
-.qc-checklist li {
-    font-size: 0.845rem;
-    line-height: 1.65;
-    color: var(--color-text-dark);
-    padding-left: 1.4rem;
-    position: relative;
-}
-
-.qc-checklist li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--color-secondary);
-    font-weight: 700;
-    font-size: 0.8rem;
-}
-
-.qc-checklist li strong {
-    color: var(--color-text-dark);
-    font-weight: 600;
-}
-
-/* Footer collapse button */
-.qc-article-footer {
-    display: flex;
-    justify-content: center;
-    padding-top: 1.5rem;
-    margin-top: 1.5rem;
-    border-top: 1px solid #eee;
-}
-
-.qc-collapse-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-secondary);
-    background: rgba(44, 62, 45, 0.06);
-    border: 1px solid rgba(44, 62, 45, 0.15);
-    border-radius: 6px;
-    padding: 0.5rem 1.1rem;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-
-.qc-collapse-btn:hover {
-    background: var(--color-secondary);
-    color: #fff;
-}
-
-/* Responsive: stack to 1 column on tablet/mobile */
-@media (max-width: 900px) {
-    .qc-levels-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .qc-level-col {
-        border-right: none;
-        border-bottom: 1px solid #e8e8e8;
-        border-top: none;
-        border-left: 4px solid var(--color-secondary);
-    }
-
-    .qc-level-col:last-child {
-        border-bottom: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .qc-article-header {
-        padding: 1.2rem 1.25rem;
-    }
-
-    .qc-article-card.expanded .qc-article-body {
-        padding: 0 1.25rem 1.5rem;
-    }
-
-    .qc-article-title {
-        font-size: 1.1rem;
-    }
-}
-
-/* =============================================
-   QC SECTION — New horizontal card layout
-   ============================================= */
-
+/* â”€â”€ Section wrapper â”€â”€ */
 .qc-section {
-    background-color: #f8f9fa;
+    padding: 5rem 0 3.5rem;
+    background: #f3f4f6;
 }
 
-/* Centered section header */
-.qc-section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.qc-section-desc {
-    color: var(--color-text-dark);
-    max-width: 680px;
-    margin: 1rem auto 0;
-    line-height: 1.7;
-    font-size: 0.97rem;
-}
-
-/* Horizontal row of QC cards */
-.qc-cards-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: flex-start;
-}
-
-/* Individual QC card */
-.qc-card {
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-    border: 1px solid rgba(44, 62, 45, 0.08);
-    overflow: hidden;
-    transition: box-shadow 0.35s ease;
-    /* Default: min width so multiple cards can sit side-by-side */
-    flex: 1 1 340px;
-    min-width: 280px;
-}
-
-.qc-card:hover {
-    box-shadow: 0 8px 32px rgba(44, 62, 45, 0.13);
-}
-
-/* Card "always visible" top section */
-.qc-card-top {
-    padding: 1.8rem 2rem 1.5rem;
-    border-left: 4px solid var(--color-secondary);
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-/* Badge wrapper — centered badge text */
-.qc-card-badge-wrap {
-    display: flex;
-    justify-content: center;
-}
-
-.qc-card-badge {
-    display: inline-block;
-    font-family: var(--font-body);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #fff;
-    background: var(--color-secondary);
-    padding: 0.28rem 0.85rem;
-    border-radius: 20px;
-}
-
-.qc-card-title {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-text-dark);
-    line-height: 1.4;
-    margin: 0;
-}
-
-.qc-card-desc {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* Toggle button (arrow) */
-.qc-card-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    margin-top: 0.4rem;
-    align-self: flex-start;
-    font-family: var(--font-body);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--color-secondary);
-    background: rgba(44, 62, 45, 0.06);
-    border: 1px solid rgba(44, 62, 45, 0.15);
-    border-radius: 6px;
-    padding: 0.4rem 0.9rem;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-
-.qc-card-toggle:hover {
-    background: var(--color-secondary);
-    color: #fff;
-}
-
-.qc-toggle-icon {
-    display: flex;
-    align-items: center;
-    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.qc-card.expanded .qc-toggle-icon {
-    transform: rotate(180deg);
-}
-
-/* Collapsible body */
-.qc-card-body {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
-                opacity 0.4s ease,
-                padding 0.35s ease;
-    padding: 0 2rem;
-}
-
-.qc-card.expanded .qc-card-body {
-    max-height: 3000px;
-    opacity: 1;
-    padding: 0 2rem 2rem;
-}
-
-/* QC image inside body */
-.qc-card-image-wrap {
-    margin-bottom: 1.75rem;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #e8e8e8;
-}
-
-.qc-card-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-/* When card is expanded, stretch full width of its container */
-.qc-cards-row .qc-card.expanded {
-    flex: 1 1 100%;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .qc-card-top {
-        padding: 1.4rem 1.25rem 1.2rem;
-    }
-
-    .qc-card.expanded .qc-card-body {
-        padding: 0 1.25rem 1.5rem;
-    }
-
-    .qc-card-title {
-        font-size: 1.1rem;
-    }
-
-    .qc-cards-row {
-        flex-direction: column;
-    }
-
-    .qc-cards-row .qc-card.expanded {
-        flex: 1 1 auto;
-    }
-}
-
-/* =============================================
-   QC REDESIGN — Professional Premium Layout
-   ============================================= */
-
-/* ── Hero Banner ── */
+/* â”€â”€ Hero Banner (dark card) â”€â”€ */
 .qc-hero {
-    background: linear-gradient(135deg, #1a2e1b 0%, #2C3E2D 55%, #1e3320 100%);
+    background: linear-gradient(135deg, #182b19 0%, #2C3E2D 60%, #1e3320 100%);
     border-radius: 20px;
     padding: 3.5rem 3rem 3rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    margin-bottom: 2.5rem;
-    box-shadow: 0 20px 60px rgba(44, 62, 45, 0.3);
+    margin-bottom: 2rem;
+    box-shadow: 0 24px 64px rgba(26, 46, 27, 0.35);
 }
 
 .qc-hero::before {
@@ -2336,68 +1898,69 @@ input:focus, textarea:focus {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 20% 50%, rgba(139, 90, 43, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 30%, rgba(212, 163, 115, 0.12) 0%, transparent 55%);
+        radial-gradient(ellipse at 15% 60%, rgba(139, 90, 43, 0.2) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 25%, rgba(212, 163, 115, 0.13) 0%, transparent 55%);
     pointer-events: none;
 }
 
+/* decorative rings */
 .qc-hero::after {
     content: '';
     position: absolute;
-    top: -60px; right: -60px;
-    width: 220px; height: 220px;
+    top: -80px; right: -80px;
+    width: 260px; height: 260px;
     border-radius: 50%;
-    border: 1.5px solid rgba(212, 163, 115, 0.12);
+    border: 1px solid rgba(212, 163, 115, 0.1);
     pointer-events: none;
 }
 
 .qc-hero-tag {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.45rem;
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--color-primary-hover);
-    background: rgba(212, 163, 115, 0.12);
-    border: 1px solid rgba(212, 163, 115, 0.25);
+    background: rgba(212, 163, 115, 0.1);
+    border: 1px solid rgba(212, 163, 115, 0.22);
     border-radius: 30px;
-    padding: 0.35rem 1rem;
-    margin-bottom: 1.4rem;
+    padding: 0.32rem 1rem;
+    margin-bottom: 1.3rem;
     position: relative;
     z-index: 1;
 }
 
 .qc-hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
     font-weight: 700;
     color: #fff;
     line-height: 1.2;
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.55rem;
     position: relative;
     z-index: 1;
 }
 
 .qc-hero-sub {
     font-size: 1rem;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255, 255, 255, 0.6);
     font-style: italic;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.025em;
     margin-bottom: 2.2rem;
     position: relative;
     z-index: 1;
 }
 
-/* Stats row */
+/* Stats row inside hero */
 .qc-hero-stats {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0;
     flex-wrap: wrap;
+    gap: 0;
     position: relative;
     z-index: 1;
 }
@@ -2406,54 +1969,116 @@ input:focus, textarea:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.2rem;
-    padding: 0 2.5rem;
+    gap: 0.18rem;
+    padding: 0 2.4rem;
 }
 
 .qc-stat-num {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     font-weight: 700;
     color: var(--color-primary-hover);
     line-height: 1;
 }
 
 .qc-stat-label {
-    font-size: 0.72rem;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.45);
 }
 
 .qc-stat-divider {
     width: 1px;
-    height: 40px;
-    background: rgba(255,255,255,0.12);
+    height: 38px;
+    background: rgba(255, 255, 255, 0.1);
     flex-shrink: 0;
 }
 
-/* ── Card top redesign ── */
+/* â”€â”€ Cards row â”€â”€ */
+.qc-cards-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+/* â”€â”€ Single QC card â”€â”€ */
+.qc-card {
+    flex: 1 1 100%;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(44, 62, 45, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.qc-card:hover {
+    box-shadow: 0 10px 36px rgba(44, 62, 45, 0.13);
+}
+
+/* â”€â”€ Card visible top area â”€â”€ */
+.qc-card-top {
+    padding: 1.8rem 2rem 1.6rem;
+    border-left: 4px solid var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
 .qc-card-meta {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
-    margin-bottom: 0.2rem;
+}
+
+.qc-card-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--color-secondary);
+    padding: 0.27rem 0.8rem;
+    border-radius: 20px;
 }
 
 .qc-card-tag-line {
-    font-size: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
     color: var(--color-text-muted);
-    letter-spacing: 0.02em;
     font-style: italic;
 }
 
-/* Toggle button redesign */
+.qc-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.qc-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.91rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* â”€â”€ Toggle button â”€â”€ */
 .qc-card-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    align-self: flex-start;
     font-family: var(--font-body);
     font-size: 0.82rem;
     font-weight: 700;
@@ -2464,94 +2089,126 @@ input:focus, textarea:focus {
     border-radius: 8px;
     padding: 0.55rem 1.2rem;
     cursor: pointer;
-    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-    align-self: flex-start;
-    margin-top: 0.6rem;
-    box-shadow: 0 4px 14px rgba(44, 62, 45, 0.25);
+    margin-top: 0.3rem;
+    box-shadow: 0 4px 14px rgba(44, 62, 45, 0.22);
+    transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
 }
 
 .qc-card-toggle:hover {
-    background: #1a2e1b;
+    background: #182b19;
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(44, 62, 45, 0.35);
+    box-shadow: 0 7px 20px rgba(44, 62, 45, 0.32);
 }
 
 .qc-card-toggle svg {
-    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
     flex-shrink: 0;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .qc-card.expanded .qc-card-toggle svg {
     transform: rotate(180deg);
 }
 
-/* ── Timeline layout (3 steps + arrows) ── */
-.qc-timeline {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    gap: 0;
-    align-items: start;
-    margin: 2rem 0 1.5rem;
+/* â”€â”€ Expandable body â”€â”€ */
+.qc-card-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 2rem;
+    transition:
+        max-height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity    0.45s ease,
+        padding    0.35s ease;
 }
 
-/* Arrow connector */
+.qc-card.expanded .qc-card-body {
+    max-height: 3200px;
+    opacity: 1;
+    padding: 0 2rem 2.5rem;
+}
+
+/* â”€â”€ Infographic image â”€â”€ */
+.qc-card-image-wrap {
+    margin: 1.75rem 0 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.qc-card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* â”€â”€ 3-Step Timeline â”€â”€ */
+.qc-timeline {
+    display: grid;
+    grid-template-columns: 1fr 36px 1fr 36px 1fr;
+    gap: 0;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+/* Arrow connector between steps */
 .qc-step-arrow {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 1.6rem;
+    padding-top: 1.5rem;
     color: var(--color-secondary);
-    opacity: 0.45;
-    flex-shrink: 0;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    opacity: 0.35;
 }
 
-/* Individual step */
+/* Individual step card */
 .qc-step {
-    background: #fff;
+    background: #f9fafb;
     border-radius: 14px;
-    border: 1px solid rgba(44, 62, 45, 0.1);
+    border: 1px solid #e5e7eb;
     border-top: 3px solid var(--color-secondary);
     padding: 1.5rem 1.4rem 1.6rem;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    height: 100%;
+    transition: box-shadow 0.28s ease, transform 0.28s ease, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .qc-step:hover {
-    box-shadow: 0 10px 32px rgba(44, 62, 45, 0.12);
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(44, 62, 45, 0.11);
     transform: translateY(-3px);
 }
 
-/* Step head: icon circle + label */
+/* Step header: icon box + labels */
 .qc-step-head {
     display: flex;
     align-items: flex-start;
     gap: 0.9rem;
-    margin-bottom: 1.2rem;
 }
 
+/* Icon square with number + SVG */
 .qc-step-icon-wrap {
     flex-shrink: 0;
-    width: 52px;
-    height: 52px;
+    width: 54px;
+    height: 54px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #2C3E2D, #3d5c3e);
+    background: linear-gradient(135deg, #2C3E2D 0%, #3d5c3e 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
-    box-shadow: 0 4px 12px rgba(44, 62, 45, 0.25);
+    gap: 3px;
+    box-shadow: 0 5px 14px rgba(44, 62, 45, 0.28);
 }
 
 .qc-step-num {
-    font-family: var(--font-heading);
-    font-size: 0.65rem;
+    font-family: var(--font-body);
+    font-size: 0.6rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.06em;
     line-height: 1;
-    letter-spacing: 0.05em;
 }
 
 .qc-step-svg {
@@ -2559,60 +2216,124 @@ input:focus, textarea:focus {
 }
 
 .qc-step-level {
-    font-size: 0.65rem;
+    font-family: var(--font-body);
+    font-size: 0.63rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-secondary);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
 }
 
 .qc-step-title {
     font-family: var(--font-heading);
-    font-size: 0.97rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--color-text-dark);
     line-height: 1.35;
     margin: 0;
 }
 
-/* ── Responsive QC timeline ── */
-@media (max-width: 900px) {
-    .qc-hero {
-        padding: 2.5rem 1.5rem 2rem;
-    }
+/* Checklist items inside each step */
+.qc-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
 
-    .qc-hero-title {
-        font-size: 1.8rem;
+.qc-checklist li {
+    font-family: var(--font-body);
+    font-size: 0.83rem;
+    line-height: 1.65;
+    color: var(--color-text-dark);
+    padding-left: 1.3rem;
+    position: relative;
+}
+
+    content: '\u2713';
+    content: 'âœ“';
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 0.78rem;
+}
+
+.qc-checklist li strong {
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+/* â”€â”€ Collapse footer button â”€â”€ */
+.qc-article-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.qc-collapse-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    background: rgba(44, 62, 45, 0.06);
+    border: 1px solid rgba(44, 62, 45, 0.14);
+    border-radius: 7px;
+    padding: 0.5rem 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.qc-collapse-btn:hover {
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+/* â”€â”€ Responsive: Tablet (â‰¤ 960px) â”€â”€ */
+@media (max-width: 960px) {
+    .qc-hero {
+        padding: 2.6rem 1.8rem 2.2rem;
     }
 
     .qc-stat {
-        padding: 0 1.4rem;
+        padding: 0 1.5rem;
     }
 
-    .qc-stat-num {
-        font-size: 1.7rem;
-    }
-
-    /* Stack timeline vertically on tablet/mobile */
+    /* Stack timeline vertically */
     .qc-timeline {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.75rem;
     }
 
     .qc-step-arrow {
-        justify-content: flex-start;
+        justify-content: center;
         padding-top: 0;
-        padding-left: 1.6rem;
         transform: rotate(90deg);
-        opacity: 0.3;
     }
 }
 
+/* â”€â”€ Responsive: Mobile (â‰¤ 600px) â”€â”€ */
 @media (max-width: 600px) {
+    .qc-section {
+        padding: 3rem 0 4rem;
+    }
+
     .qc-hero {
-        padding: 2rem 1.2rem 1.8rem;
+        padding: 2rem 1.25rem 1.8rem;
         border-radius: 14px;
+    }
+
+    .qc-hero-title {
+        font-size: 1.55rem;
     }
 
     .qc-hero-stats {
@@ -2620,17 +2341,42 @@ input:focus, textarea:focus {
     }
 
     .qc-stat {
-        padding: 0 0.8rem;
+        padding: 0 0.9rem;
+    }
+
+    .qc-stat-num {
+        font-size: 1.65rem;
     }
 
     .qc-stat-divider {
         height: 28px;
     }
 
+    .qc-card-top {
+        padding: 1.4rem 1.25rem 1.2rem;
+    }
+
+    .qc-card.expanded .qc-card-body {
+        padding: 0 1.25rem 2rem;
+    }
+
+    .qc-card-title {
+        font-size: 1.1rem;
+    }
+
     .qc-card-meta {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.4rem;
+        gap: 0.35rem;
+    }
+
+    .qc-step {
+        padding: 1.2rem 1.1rem 1.3rem;
+    }
+
+    .qc-step-icon-wrap {
+        width: 46px;
+        height: 46px;
     }
 }
 

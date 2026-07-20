@@ -811,7 +811,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Update toggle label
                 const label = btn.querySelector('.qc-toggle-label');
-                if (label) label.textContent = isExpanded ? 'See details' : 'See less';
+                if (label) label.textContent = isExpanded ? 'View Full Details' : 'See less';
             });
         });
 
@@ -828,7 +828,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (toggle) {
                         toggle.setAttribute('aria-expanded', 'false');
                         const label = toggle.querySelector('.qc-toggle-label');
-                        if (label) label.textContent = 'See details';
+                        if (label) label.textContent = 'View Full Details';
                     }
                     // Old-style header
                     const hdr = card.querySelector('.qc-article-header');
