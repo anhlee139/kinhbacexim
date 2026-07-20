@@ -2380,3 +2380,103 @@ input:focus, textarea:focus {
     }
 }
 
+
+/* =========================================================
+   QC CARD 2 — COMPLAINT HANDLING  (Brown / Amber Theme)
+   ========================================================= */
+
+/* Card left border — amber/brown accent */
+.qc-card-top.qc-card-top--brown {
+    border-left-color: #8B5A2B;
+}
+
+/* Badge — brown variant */
+.qc-card-badge--brown {
+    background: #6B3F1A;
+}
+
+/* Card toggle button — brown */
+.qc-card-toggle--brown {
+    background: #6B3F1A;
+    box-shadow: 0 4px 14px rgba(107, 63, 26, 0.28);
+}
+
+.qc-card-toggle--brown:hover {
+    background: #4a2b11;
+    box-shadow: 0 7px 20px rgba(107, 63, 26, 0.38);
+}
+
+/* 4-step timeline grid */
+.qc-timeline--4 {
+    display: grid;
+    grid-template-columns: 1fr 28px 1fr 28px 1fr 28px 1fr;
+    gap: 0;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+/* Brown step card top border */
+.qc-step--brown {
+    border-top-color: #8B5A2B;
+}
+
+.qc-step--brown:hover {
+    box-shadow: 0 10px 30px rgba(107, 63, 26, 0.1);
+}
+
+/* Brown icon box gradient */
+.qc-step-icon-wrap--brown {
+    background: linear-gradient(135deg, #6B3F1A 0%, #9C5B24 100%);
+    box-shadow: 0 5px 14px rgba(107, 63, 26, 0.3);
+}
+
+/* Brown level label */
+.qc-step-level--brown {
+    color: #8B5A2B;
+}
+
+/* Partnership note */
+.qc-partnership-note {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #fdf6f0 0%, #fff8f3 100%);
+    border: 1px solid rgba(139, 90, 43, 0.18);
+    border-left: 4px solid #8B5A2B;
+    border-radius: 10px;
+    padding: 1rem 1.4rem;
+    margin-bottom: 1.8rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #5c3a18;
+    line-height: 1.6;
+}
+
+.qc-partnership-note svg {
+    flex-shrink: 0;
+    color: #8B5A2B;
+    opacity: 0.8;
+}
+
+/* Responsive: 4-step on tablet (2x2 grid) */
+@media (max-width: 1100px) {
+    .qc-timeline--4 {
+        grid-template-columns: 1fr 28px 1fr;
+        row-gap: 0.75rem;
+    }
+}
+
+/* Responsive: 4-step on mobile (vertical stack) */
+@media (max-width: 700px) {
+    .qc-timeline--4 {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .qc-timeline--4 .qc-step-arrow {
+        justify-content: center;
+        transform: rotate(90deg);
+        padding-top: 0;
+    }
+}
